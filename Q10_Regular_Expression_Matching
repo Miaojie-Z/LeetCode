@@ -5,6 +5,7 @@ class Solution(object):
         :type p: str
         :rtype: bool
         """
+
 #method 1:
         if re.match(p, s)== None:
             return False
