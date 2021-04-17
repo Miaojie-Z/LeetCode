@@ -19,6 +19,7 @@ class Solution(object):
                 while l<r:
                     if nums[l]+nums[r]==twosum:
                         res.append([nums[i],nums[j],nums[l],nums[r]])
+                        # be unique
                         while l<r and nums[l+1]==nums[l]:
                             l+=1
                         while l<r and nums[r-1]==nums[r]:
