@@ -1,0 +1,31 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        
+        final=l=ListNode(0)
+        res=[]
+        # add all into array and sort
+        for i in lists:
+            node=i
+            while node:
+                res.append(node.val)
+                node=node.next
+        res.sort()
+        
+        # creat links
+        for i in res:
+            l.next=ListNode(i)
+            l=l.next
+        return final.next
+            
+    
+                
+    
