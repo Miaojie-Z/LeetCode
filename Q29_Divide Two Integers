@@ -1,0 +1,47 @@
+class Solution(object):
+    def divide(self, dividend, divisor):
+        """
+        :type dividend: int
+        :type divisor: int
+        :rtype: int
+        """
+        if dividend==0:
+            return 0
+        
+        if abs(dividend)< abs(divisor):
+            return 0
+        elif dividend == divisor:
+            return 1
+        elif dividend == 0-divisor:
+            return -1
+        
+        if (dividend>0 and divisor<0) or (dividend<0 and divisor>0):
+            sign=-1
+        else:
+            sign =1
+            
+            
+        dividend=abs(dividend)
+        divisor=abs(divisor)
+        quotient=0
+        
+        # x << y = x * (2**y)
+        # x >> y = x / (2**y)
+        while dividend>=divisor:
+            k=0
+            tmp =divisor
+            while dividend >=tmp:
+                dividend-=tmp  # starting from 1，2，4，8 then power of 2
+                quotient += 1 << k # 1*2^k
+                tmp <<= 1 # shift to left by n bits, =tmp*2
+                k+=1
+                
+        quotient=sign*quotient    
+        
+            
+        if quotient>2 **31-1:
+            return 2 **31-1
+        else:
+            return quotient
+            
+            
