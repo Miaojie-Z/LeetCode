@@ -1,0 +1,26 @@
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        candidates.sort()
+        if candidates[0]>target:
+            return []
+        
+        # depth first search, recursion
+        def dfs(index,val):
+            for i in range(index, len(candidates)):
+                if sum(val)+candidates[i]==target:
+                    res.append(val+[candidates[i]])
+                elif sum(val)+candidates[i]<target:
+                    dfs(i,val+[candidates[i]])
+                else:
+                    break
+                
+            
+        res=[]
+        dfs(0, [])
+        return res
+    
