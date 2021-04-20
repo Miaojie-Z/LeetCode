@@ -17,7 +17,8 @@ class Solution(object):
             if height[i]>right:
                 right=height[i]
             
-            water+= min(left[i],right)-height[i]
+            if min(left[i],right)>height[i]: # judge, decide
+                water+= min(left[i],right)-height[i]
         
         return water
      
