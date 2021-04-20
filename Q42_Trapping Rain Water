@@ -1,0 +1,23 @@
+class Solution(object):
+    def trap(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        left=[]
+        max=0
+        for i in range(len(height)):
+            if height[i]>max:
+                max=height[i]
+            left.append(max)
+       
+        right=0
+        water=0
+        for i in range(len(height)-1,-1,-1):
+            if height[i]>right:
+                right=height[i]
+            
+            water+= min(left[i],right)-height[i]
+        
+        return water
+     
