@@ -1,0 +1,17 @@
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+
+        maxi=nums[0]
+        for i in range(1,len(nums)):
+            if maxi<i:
+                return False
+            if nums[i]+i>maxi:
+                maxi = nums[i]+i
+        if maxi >=len(nums)-1:
+            return True
+        else:
+            return False
