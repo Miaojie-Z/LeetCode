@@ -1,4 +1,5 @@
 class Solution(object):
+    # define and create
     def __init__(self):
         self.dp = dict()
     def numTrees(self, n):
